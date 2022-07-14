@@ -67,7 +67,7 @@ class RollLog:
 def make_roll_log(event_type: str, roll: float, passed: bool, batter, batting_team, pitcher,
                   pitching_team, stadium, players, update):
     batter_multiplier = 1
-    for mod in set(itertools.chain(batter.mods, batting_team.mods)):
+    for mod in itertools.chain(batter.mods, batting_team.mods):
         if mod == 'OVERPERFORMING':
             batter_multiplier += 0.2
         elif mod == 'UNDERPERFORMING':
@@ -88,7 +88,7 @@ def make_roll_log(event_type: str, roll: float, passed: bool, batter, batting_te
                 batter_multiplier += 0.05
 
     pitcher_multiplier = 1
-    for mod in set(itertools.chain(pitcher.mods, pitching_team.mods)):
+    for mod in itertools.chain(pitcher.mods, pitching_team.mods):
         if mod == 'OVERPERFORMING':
             pitcher_multiplier += 0.2
         elif mod == 'UNDERPERFORMING':
